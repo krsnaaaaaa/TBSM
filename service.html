@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saiitek Solutions</title>
+    <link rel="icon" href="https://i.ibb.co/xSwMmkR8/favicon-16x16.png" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'League Spartan', sans-serif;
+
+        }
+
+        body {
+            font-family: 'Noyh Heavy', sans-serif;
+            overflow-x: hidden;
+        }
+
+        
+
+        /* Service Page */
+
+        .nav-header {
+            background: rgba(240, 240, 240, 0.9);
+            padding: 15px;
+            width: 100%;
+            position: relative;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-icon {
+            cursor: pointer;
+            display: flex;
+            align-items: left;
+            justify-content: left;
+        }
+
+        .back-icon img {
+            height: 40px;
+            object-fit: contain;
+        }
+
+        
+       
+
+        .header-serv span {
+            color: #1E90FF;
+        }
+        /* Header Animation */
+        .header-serv {
+            color: black;
+            font-size: 3.5em;
+            font-weight: bold;
+            margin: 50px 0 10px;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        .header-serv.animate {
+            animation: fadeInBounceSmooth 2s cubic-bezier(0.23, 1, 0.32, 1);
+            opacity: 1 !important;
+        }
+
+        @keyframes fadeInBounceSmooth {
+            0% { opacity: 0; transform: translateY(-40px); }
+            40% { opacity: 0.6; transform: translateY(5px); }
+            70% { opacity: 0.8; transform: translateY(-2px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Services Section */
+        .services-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .service {
+            display: flex;
+            flex-direction: column; /* Default column layout */
+            align-items: center;
+            width: 300px;
+            height: auto;
+            background: #eaf0fa;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+        }
+
+        .service-image {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .service-image img {
+            width: 90%;
+            height: 140px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        .service-text {
+            text-align: center;
+        }
+
+        .service-text h3 {
+            color: #1E90FF;
+            font-size: 20px;
+            margin: 10px 0 5px;
+        }
+
+        .service-text p {
+            font-size: 16px;
+            font-weight: 550;
+            color: #444;
+            line-height: 1.4;
+            padding: 0 15px;
+        }
+
+        .service a {
+            text-decoration: none;
+
+        }
+
+        /* Service Details Section */
+        .service-ex {
+            padding: 60px 10px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .service-ex.fade-in {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        .service-subheads {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #1E90FF;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            width: 90%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.1);
+        }
+
+        .texts {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+            max-width: 90%;
+            line-height: 2;
+            text-align: justify;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .services-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service {
+                flex-direction: row; /* Change to row layout for smaller screens */
+                align-items: center;
+                width: 100%;
+            }
+
+            .service-image {
+                width: 40%; /* Image takes 40% of the width */
+                align-items: center;
+                justify-content: center;
+                justify-self: center;
+            }
+
+            .service-text {
+                width: 100%; /* Text takes 60% of the width */
+                text-align: left;
+            }
+
+            .service-subheads {
+                font-size: 30px;
+            }
+
+            .texts {
+                font-size: 14px;
+            }
+
+            .service-text h3 {
+                font-size: 16px;
+            }
+
+            .service-text p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Service Page -->
+    <section id="servicePage">
+        <header class="nav-header">
+            <nav>
+                <div class="back-icon" >
+                    <a href="index.html"> <img src="https://i.ibb.co/994T4rKM/arrow.png" alt="Back Icon"></a>
+                   
+                </div>
+            </nav>
+        </header>
+        <h2 class="header-serv"> <span>Our </span> Services</h2>
+
+        <!-- Service Cards -->
+        <div class="services-container">
+            <div class="service">
+                <a href="#SIS">
+                    <div class="service-image">
+                        <img src="https://i.ibb.co/5gTpqVN7/wave.jpg" alt="Smart Image Storage">
+                    </div>
+                    <div class="service-text">
+                        <h3>Smart Image Storage</h3>
+                        <p>Store and manage medical images efficiently. Secure cloud access ensures seamless integration with hospital systems.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="service">
+                <a href="#PRM">
+                    <div class="service-image">
+                        <img src="" alt="Patient Record Management">
+                    </div>
+                    <div class="service-text">
+                        <h3>Patient Record Management</h3>
+                        <p>Digitize and protect patient records for easy access. Improve efficiency through secure and organized data handling.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="service">
+                <a href="#RCS">
+                    <div class="service-image">
+                        <img src="" alt="Radiology Care Suite">
+                    </div>
+                    <div class="service-text">
+                        <h3>Radiology Care Suite</h3>
+                        <p>Enhance diagnostic accuracy with AI-assisted tools. Fast and precise image analysis improves patient care.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="service">
+                <a href="#MV">
+                    <div class="service-image">
+                        <img src="" alt="MammoVision">
+                    </div>
+                    <div class="service-text">
+                        <h3>MammoVision</h3>
+                        <p>Detect breast cancer early with high-resolution imaging. AI-driven insights assist doctors in making informed decisions.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="service">
+                <a href="#HMA">
+                    <div class="service-image">
+                        <img src="" alt="Health Monitoring App">
+                    </div>
+                    <div class="service-text">
+                        <h3>Health Monitoring App</h3>
+                        <p>Monitor health statistics with real-time analytics. Personalized alerts ensure proactive patient care.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Service Details -->
+        <div id="SIS" class="service-ex">
+            <h2 class="service-subheads">Smart Image Storage</h2>
+            <div class="image-container">
+                <img src="" alt="Smart Image Storage">
+                <p class="texts">Our advanced Smart Image Storage system ensures secure and efficient management of medical imaging data. Equipped with high-level encryption, AI-powered organization, and seamless cloud integration, it enhances accessibility and retrieval. This system supports various medical formats, ensuring compatibility across hospitals and diagnostic centers. The automated categorization and tagging features help healthcare professionals quickly locate and analyze medical images, improving workflow efficiency and patient outcomes.</p>
+            </div>
+        </div>
+        <div id="PRM" class="service-ex" style="background-color: #dfe6f3;">
+            <h2 class="service-subheads">Patient Record Management</h2>
+            <div class="image-container">
+                <img src="" alt="Patient Record Management">
+                <p class="texts">Our system revolutionizes patient record management by offering a centralized, digital repository for medical records. Features include real-time updates, AI-powered predictive analysis, and automated data entry, reducing administrative burdens. Patients benefit from improved service quality, while doctors can quickly access comprehensive medical histories, lab results, and treatment plans. Secure access ensures data privacy while enabling seamless collaboration among medical teams.</p>
+            </div>
+        </div>
+        <div id="RCS" class="service-ex" style="background-color: #fdfdfd;">
+            <h2 class="service-subheads">Radiology Care Suite</h2>
+            <div class="image-container">
+                <img src="" alt="Radiology Care Suite">
+                <p class="texts">Our Radiology Care Suite is an all-encompassing solution designed to enhance diagnostic precision and efficiency. It integrates AI-driven imaging analysis, enabling radiologists to detect anomalies with greater accuracy. The suite offers real-time image sharing, collaborative reporting, and cloud-based access to past scans, ensuring seamless workflow integration. This technology empowers medical teams with faster diagnostic capabilities, leading to improved patient outcomes and reduced wait times for critical diagnoses.</p>
+            </div>
+        </div>
+        <div  class="service-ex" style="background-color: #dfe6f3; " id="MV">
+            <h2  class="service-subheads">MammoVision</h2>
+            <div class="image-container">
+                <img src="" alt="MammoVision">
+                <p class="texts">MammoVision is an advanced breast cancer screening solution that combines high-resolution imaging with AI-assisted diagnostics. It enhances early detection rates, providing accurate assessments with minimal false positives. The system is designed for seamless integration with existing hospital databases, facilitating effortless record management and real-time consultations. With an intuitive interface and automated reporting features, MammoVision ensures efficient, data-driven decision-making for healthcare professionals.</p>
+            </div>
+        </div>
+        <div id="HMA" class="service-ex" style="background-color: #fdfdfd;">
+            <h2 class="service-subheads">Health Monitoring App</h2>
+            <div class="image-container">
+                <img src="" alt="Health Monitoring App">
+                <p class="texts">Our Health Monitoring App is a next-generation solution for tracking vital health metrics in real-time. It integrates with wearable devices to monitor heart rate, blood pressure, oxygen levels, and more. AI-driven analytics provide personalized health insights, allowing users to take proactive steps towards better well-being. The app also features remote consultations, medication reminders, and emergency alert systems, ensuring continuous care and connectivity between patients and healthcare providers.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>© <span id="year"></span> Saiitek Solutions. All rights reserved.</p>
+        </footer>
+    </section>
+
+    <script>
+       
+
+            // Animate headings and sections when they come into view
+            const observerOptions = { threshold: 0.1 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.service-ex').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Animate header on load
+            window.addEventListener('load', () => {
+                document.querySelector('.header-serv').classList.add('animate');
+                document.getElementById('year').textContent = new Date().getFullYear();
+            });
+
+            // Smooth scroll for internal anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+             // Get the current year
+    const currentYear = new Date().getFullYear();
+
+// Set the current year in the footer
+document.getElementById('year').textContent = currentYear;
+</script>
+        
+    </script>
+</body>
+</html>
+
+

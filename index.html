@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saiitek Solutions</title>
+    <link rel="icon" href="https://i.ibb.co/xSwMmkR8/favicon-16x16.png" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            max-width: 100%;
+            margin: 0;
+            font-family: 'League Spartan', sans-serif;
+            overflow-x: hidden; /* Prevents horizontal scroll */
+        }
+
+             /* Navbar */
+         .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: white;
+            color: black;
+            width: 100%;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+        }
+
+        /* Full-width navbar for larger screens */
+        @media (min-width: 1245px) {
+            .navbar {
+                border-radius: 0;
+                width: 100%;
+            }
+        }
+
+        /* Rounded navbar for smaller screens */
+        @media (max-width: 768px) {
+            .navbar {
+                border-radius: 15px;
+                margin: 10px;
+                width: calc(100% - 20px);
+            }
+        }
+
+     
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links li {
+            display: inline;
+            position: relative;
+            
+        }
+
+        .nav-links a, .mobile-menu ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 700;
+            transition: color 0.3s ease-in-out;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        /* Adding underline effect */
+        .nav-links a::after, .mobile-menu ul li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #047dfe, #66b3ff);; 
+            transition: width 0.4s ease-in-out;
+        }
+
+        .nav-links a:hover, .mobile-menu ul li a:hover {
+            color: black;
+        }
+
+        .nav-links a:hover::after, .mobile-menu ul li a:hover::after {
+            width: 100%;
+        }
+
+
+        /* Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            position: relative;
+            color: black;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 4px;
+            background: black;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 95px; /* Added gap between navbar and menu */
+            right: -100%;
+            width: calc(100% - 10px); /* Full width but with margins */
+            max-width: 440px; /* Prevent menu from being too wide */
+            height: calc(95vh - 95px); /* Full height with some gap */
+            background: rgba(145, 193, 238, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: right 0.4s ease-in-out;
+            overflow-y: auto;
+            box-sizing: border-box;
+            border-radius: 20px; /* Rounded menu */
+            margin: 10px; /* Added gap around the menu */
+            margin-top: 25px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+
+        }
+
+        .mobile-menu.active {
+            right: 10px;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mobile-menu ul li {
+            padding: 20px;
+        }
+
+        .mobile-menu ul li a {
+            font-size: 18px;
+            color: black;
+            font-weight: bold;
+            transition: color 0.3s;
+            text-align: left;
+        }
+
+        .mobile-menu ul li a:hover {
+            color: black;
+            
+        }
+
+        /* Hide Desktop Links on Small Screens */
+        @media (max-width: 1245px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                padding: 15px 30px;
+                
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
+                                                                                /* banner section  */
+        /* banner section  */                                                                        
+        /* Banner Container */
+        .banner-container {
+            width: 95.8%;
+            position: relative;
+        }
+
+        /* Banner Section */
+        .banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background-color: #E8EFFC;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 40px;
+            border-radius: 0;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Heading Animation */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Banner Text */
+        .banner-text {
+            max-width: 60%;
+        }
+
+        .banner-text h1 {
+            font-size: 4rem;
+            line-height: 1.2;
+            background: linear-gradient(315deg, #87CEFA, #4682B4);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-left: 32%;
+            opacity: 0;
+            animation: fadeInScale 1.2s ease-out forwards 0.5s;
+        }
+
+        /* Banner Image */
+        .banner img {
+            max-width: 40%;
+            border-radius: 10px;
+            margin-right: 200px;
+            background-color: transparent;
+
+        }
+
+        /* Banner Button Container */
+        .banner-button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: -110px;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out forwards 0.5s;
+        }
+
+        /* Banner Button */
+       /* Banner Button */
+.banner-button {
+    display: inline-block;
+    background: linear-gradient(315deg, #87CEFA, #4682B4);
+    color: black;
+    padding: 15px 35px;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid oldlace;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+/* Hover animation */
+.banner-button:hover {
+    animation: pulse 1s infinite;
+    color: #E8EFFC;
+}
+
+/* Button Pulse Animation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+
+      
+
+        /* Button Pulse Animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1245px) {
+            .banner {
+                max-width: 100%;
+                flex-direction: row;
+                text-align: left;
+                padding: 30px;
+                margin-top: 150px; /* Ensures separation from navbar */
+
+            }
+
+            .banner-text {
+                max-width: 100%;
+            }
+
+            .banner-text h1 {
+                font-size: 2.5rem;
+                margin-left: -5px;
+            }
+
+            .banner img {
+                max-width: 70%;
+                margin-top: 20px;
+                margin-right: -50px;
+            }
+
+            .banner-button {
+                padding: 8px 20px;
+                font-size: 20px;
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+        .banner {
+            flex-direction: row; /* Stack image and text vertically */
+            text-align: center; /* Center-align text */
+            padding: 20px; /* Reduce padding for smaller screens */
+            margin-top: 150px; /* Adjust margin for spacing */
+        }
+
+        .banner-text {
+            max-width: 100%; /* Allow text to take full width */
+            margin: 0; /* Remove left margin */
+        }
+
+        .banner-text h1 {
+            font-size: 2rem; /* Reduce font size for smaller screens */
+            line-height: 1.3; /* Adjust line height for readability */
+            margin: 0; /* Remove extra margin */
+        }
+
+        .banner img {
+            max-width: 80%; /* Reduce image size */
+            margin: 20px auto 0; /* Center image and add spacing */
+        }
+
+        .banner-button-container {
+            margin-top: -100px; /* Add spacing above the button */
+        }
+
+        .banner-button {
+            padding: 10px 20px; /* Adjust button padding */
+            font-size: 16px; /* Reduce font size */
+        }
+    }
+
+                                                                                /* mission section  */
+           /* Slide-in Animation */
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+     /* Our Mission Section */
+     .mission {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            margin-top: 50px;
+        }
+
+        .mission-container {
+            display: flex;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            padding: 40px;
+            border-radius: 10px;
+            flex-wrap: wrap;
+        }
+
+        .mission-text {
+            flex: 1;
+            margin-left: 20px;
+            padding-right: 30px;
+            text-align: left;
+            opacity: 0;
+            animation: slideInLeft 1s ease-out forwards;
+        }
+
+        .mission-text h2 {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: black;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .mission-text span {
+            color: #1E90FF;
+        }
+
+        .mission-text p {
+            font-size: 1.8em;
+            font-weight: 300;
+            color: black;
+            line-height: 1.6;
+            margin-top: 2%;
+        }
+
+        .mission-image {
+            flex: 1;
+            text-align: center;
+            opacity: 0;
+            animation: slideInRight 1s ease-out forwards;
+        }
+
+        .mission-image img {
+            width: 100%;
+            max-width: 900px;
+            height: 100%;
+            border-radius: 50px;
+            margin-right: -250px;
+        }
+
+      /* Responsive Design - Small Screens */
+    @media (max-width: 1245px) {
+    .mission-container {
+        flex-direction: column;
+        text-align: center;
+        margin-top: -50px;
+    }
+
+    .mission-text {
+        margin-left: 0;
+        padding-right: 0;
+        padding: 0px;
+    }
+
+    .mission-text h2 {
+        font-size: 3em;
+    }
+
+    .mission-text p {
+        font-size: 1.8em;
+    }
+
+    .mission-image {
+        margin-top: 20px;
+        margin-left: -250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mission-text h2 {
+        font-size: 3em;
+    }
+
+    .mission-text p {
+        font-size: 1.5em;
+    }
+}
+                                                                         /* client section  */
+    
+        /* Clients Section */
+        .clients {
+            padding: 0 0;
+            height: 40vh;
+        }
+        .clients h3{
+            text-align: center;
+            margin: 50px 0;
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #333;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            
+
+
+        }
+
+        .clients span {
+            color: #1E90FF;
+        }
+
+        :root {
+            --marquee-width: 99vw;
+            --marquee-height: 20vh;
+        /* --marquee-elements: 12; */ /* defined with JavaScript */
+            --marquee-elements-displayed: 5;
+            --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
+            --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
+
+        }
+
+        .marquee {
+          width: var(--marquee-width);
+          height: var(--marquee-height);
+          color: #eee;
+          overflow: hidden;
+          position: relative;
+        }
+
+        .marquee:before, .marquee:after {
+          position: absolute;
+          top: 0;
+          width: 10rem;
+          height: 100%;
+          content: "";
+          z-index: 1;
+        }
+
+        .marquee:before {
+          left: 0;
+          background: linear-gradient(to right, #fefdfd 0%, transparent 100%);
+        }
+
+        .marquee:after {
+          right: 0;
+          background: linear-gradient(to left, #fefdfd 0%, transparent 100%);
+        }
+
+        .marquee-content {
+          list-style: none;
+          height: 100%;
+          display: flex;
+          animation: scrolling var(--marquee-animation-duration) linear infinite;
+        }
+
+        /* .marquee-content:hover {
+          animation-play-state: paused;
+        } */
+        @keyframes scrolling {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements))); }
+        }
+
+        .marquee-content li {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          /* text-align: center; */
+          flex-shrink: 0;
+          width: var(--marquee-element-width);
+          max-height: 100%;
+          font-size: calc(var(--marquee-height)*3/4); /* 5rem; */
+          white-space: nowrap;
+          padding: 20px; /* Adds some space around each image */
+
+        }
+
+        .marquee-content li img {
+          width: 100%;
+          gap: 10px;
+          /* height: 100%; */
+          margin: 10px; /* Adds space between images */
+        
+        }
+
+        @media (max-width: 600px) {
+          html { font-size: 12px; }
+          :root {
+            --marquee-width: 90vw;
+            --marquee-height: 16vh;
+            --marquee-elements-displayed: 3;
+            margin-top: -100px;
+
+          }
+          .marquee:before, .marquee:after { width: 5rem; }
+
+        }
+
+                                                                                        /* certification section  */
+           /* certification section  */
+
+           .certification-container{
+            background: linear-gradient(to right, #2dd4bf, #2563eb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 40vh;
+            overflow: hidden;
+        }       
+
+        .certification-section {
+            text-align: center;
+            color: black;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(100px);
+            animation: slideIn 1s ease-out forwards;
+        }
+
+        .certifications {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 70px;
+            margin-bottom: 30px;
+        }
+
+        .cert {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(100px);
+            animation: slideIn 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        .main-img {
+            width: 250px;
+            height: 150px;
+            border-radius: 5px;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .badge-img {
+            position: absolute;
+            bottom: -45px;
+            width: 100px;
+            height: 80px;
+        }
+
+        .cert-text {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-top: 100px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideIn 1s ease-out forwards;
+            animation-delay: 1s;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design - Small Screens */
+        @media (max-width: 1245px) {
+            .certifications {
+                flex-direction: column;
+                gap: 30px;
+
+            }
+
+            .cert {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .main-img {
+                width: 100%;
+                height: auto;
+            }
+
+            .badge-img {
+                width: 100px;
+                height: auto;
+                bottom: -20px;
+            }
+
+            .cert-text {
+                font-size: 2em;
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cert-text {
+                font-size: 1.2em;
+            }
+        }
+
+
+                                                                                    /* contact section  */
+            /* contact section  */
+
+    .contact-container {
+    text-align: center;
+    padding: 50px 0;
+
+}
+
+h2 {
+    color: #1E90FF;
+    font-size: 3em;
+    font-weight: bolder;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    
+
+
+}
+
+.contact-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 10px;
+}
+
+.qr-code img {
+    width: 300px;
+    height: 300px;
+}
+
+.contact-info {
+    text-align: left;
+    font-size: 1.5em;
+}
+
+.contact-info strong {
+    color: #1E90FF;
+    font-size: 1em;
+
+}
+
+.contact-info a { 
+    text-decoration: none;
+    color: #333;
+}
+
+.psp-logo {
+            width: 25px;
+            height: 25px;
+            margin-right: 5px;
+        }
+        
+      
+      /* Responsive Design - Small Screens */
+@media (max-width: 1245px) {
+    .contact-content {
+        flex-direction: row; /* Stack elements vertically */
+        gap: 20px; /* Adjust gap for smaller screens */
+        margin-top: 50px;
+
+    }
+
+    .qr-code img {
+        width: 200px; /* Adjust QR code size */
+        height: 200px; /* Maintain aspect ratio */
+        margin-top: -50px;
+
+    }
+
+    .contact-info {
+        text-align: center; /* Center text for smaller screens */
+        font-size: 1.2em; /* Adjust font size for readability */
+        margin-top: -50px;
+
+    }
+}
+
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 2.5em; /* Further adjust heading size for very small screens */
+    }
+
+    .contact-info {
+        font-size: 1em; /* Further adjust font size for very small screens */
+    }
+}
+
+/* Footer */
+footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        @keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Initially Hide Section Headings */
+.section-heading {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://i.ibb.co/1G0BxBqZ/logo.png" alt="Company Logo" style="height: 60px;"> 
+
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="scroll-link">Home</a></li>
+            <li><a href="#missionn" class="scroll-link">Our Mission</a></li>
+            <li><a href="#clientt" class="scroll-link">Our Clients</a></li>
+            <li><a href="#certf" class="scroll-link">Certifications</a></li>
+            <li><a href="#contactt" class="scroll-link">Contact Us</a></li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <section>
+    
+    </section>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#home" class="scroll-link">Home</a></li>
+            <li><a href="#missionn" class="scroll-link">Our Mission</a></li>
+            <li><a href="#clientt" class="scroll-link">Our Clients</a></li>
+            <li><a href="#certf" class="scroll-link">Certifications</a></li>
+            <li><a href="#contactt" class="scroll-link">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <section id="home" >
+            <!-- Banner Section -->
+    <div class="banner-container">
+        <div class="banner">
+            <!-- Banner Text -->
+            <div class="banner-text">
+                <h1>
+                    Redefining <br>Wellness,<br>Transforming<br>Care,<br>Empowering Lives
+                    <span id="dots" class="dots">.</span>
+                </h1>
+            </div>
+            <!-- Banner Image -->
+            <img src="https://i.ibb.co/MkTqkjc9/banner-trans.png" alt="banner-trans" border="0">
+        </div>
+
+        <!-- Banner Button -->
+        <div class="banner-button-container">
+            <a href="service.html" class="banner-button">Discover our  Solutions!</a>
+        </div> 
+    </div>
+    </section>
+
+    <section id="missionn">
+        <section id="mission" class="mission">
+            <div class="mission-container">
+                <div class="mission-text">
+                    <h2 class="section-heading">Our <span>Mission</span></h2> 
+                    <p>Bringing simple, smart tech to healthcare and businesses in Nepal. We make medical imaging and patient care easier, so you can focus on what matters most improving lives.</p>
+                </div>
+                <div class="mission-image">
+                    <img src="https://i.ibb.co/gbbmp447/mission.jpg" alt="mission-image" >
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section id="clientt">
+        <section id="clients" class="clients">
+            <h3 class="section-heading">Our <span>Clients</span></h3>
+            <div class="marquee">
+                <ul class="marquee-content">
+                    
+                    <li><img  src="https://i.ibb.co/bRmvK5j8/baidya-and-banskota.png" alt="baidya-and-banskota"></li>
+                    <li><img  src="https://i.ibb.co/hwyCtY0/birat-medical-college.png" alt="birat-medical-college"></li>
+                    <li><img  src="https://i.ibb.co/cXQWMYw1/CMC.png" alt="CMC"></li>
+                    <li><img  src="https://i.ibb.co/RkNPx04F/dhaka-medical-college.png" alt="dhaka-medical-college"></li>
+                    <li><img  src="https://i.ibb.co/1t62CVqh/grande.png" alt="grande"></li>
+                    <li><img  src="https://i.ibb.co/LXMn23N9/HRDC-1.png" alt="HRDC"></li>
+                    <li><img  src="https://i.ibb.co/ZtK1kng/ktm-medical-college.png" alt="ktm-medical-college"></li>
+                    <li><img  src="https://i.ibb.co/6Rbt9Jxt/mediciti.png" alt="mediciti"></li>
+                    <li><img  src="https://i.ibb.co/twmfgkVK/National-Medical-College-Image.png" alt="National-Medical-College"></li>
+                    <li><img  src="https://i.ibb.co/DPMZQq3Z/nepal-cancer-hospital.png" alt="nepal-cancer-hospital"></li>
+                    <li><img  src="https://i.ibb.co/XkYBRd7H/nepalgunj-medical-college.png" alt="nepalgunj-medical-college"></li>
+                    <li><img  src="https://i.ibb.co/m5Vk4Spk/Nins-Remove-Background.png" alt="Nins"></li>
+                    <li><img  src="https://i.ibb.co/QFMgnPyF/NMC.jpg" alt="NMC"></li>
+                    <li><img  src="https://i.ibb.co/rRg2P3r9/nobel-medical-college.png" alt="nobel-medical-college"></li>
+                    <li><img  src="https://i.ibb.co/BVzg4Cys/norvic.png" alt="norvic"></li>
+                    <li><img  src="https://i.ibb.co/Qjtpq7bX/PCH.png" alt="PCH"></li>
+                    <li><img  src="https://i.ibb.co/TMRNNb5G/image.png" alt="Satkhira"></li>
+                    <li><img  src="https://i.ibb.co/mFJpXsq2/upendra-devkota-memorial.png" alt="upendra-devkota-memorial"></li>
+                </ul>
+              </div>
+        </section>
+    
+    </section>
+    <section id="certf">
+        <section id="cert" class="certification-container">
+            <div class="certification-section">
+                <div class="certifications">
+                    <div class="cert">
+                        <img class="main-img" src="https://i.ibb.co/qMYMVKP8/usa.jpg" alt="USA Certification">
+                        <img class="badge-img"  src="https://i.ibb.co/5WW2VVCc/fda.jpg" alt="FDA Badge">
+                    </div>
+                    <div class="cert">
+                        <img class="main-img" src="https://i.ibb.co/35bs1Xy7/Thailand-flag.jpg" alt="Thailand Certification">
+                        <img class="badge-img" src="https://i.ibb.co/3m7rfCV9/Thai-FDA.jpg" alt="Thai FDA Badge">
+                    </div>
+                    <div class="cert">
+                        <img class="main-img" src="https://i.ibb.co/TByhC7SV/japan.jpg" alt="Japan Certification">
+                        <img class="badge-img" src="https://i.ibb.co/9mF9zs4k/Pda-Japan.jpg" alt="PMDA Japan Badge">
+                    </div>
+                </div>
+                <p class="cert-text">Processing 200 Million Images and Hundreds of Tera Bytes of Data every day.</p>
+            </div>
+        </section>
+    </section>
+
+    <section id="contactt">
+        <section id="contact" class="contact">
+            <div class="contact-container">
+                <h2 class="section-heading">Connect with Us</h2>
+                <div class="contact-content">
+                    <div class="qr-code">
+                        <img src="https://i.ibb.co/TMpgdyxT/Fb-qr.jpg" alt="Fb-qr" border="0">
+                    </div>
+                    <div class="contact-info">
+                        <p><strong>Mailing Address</strong><br> <a href="https://www.google.com/maps/place/Downtown+Apartment/@27.6466818,85.3235662,17z/data=!3m1!4b1!4m6!3m5!1s0x39eb176f85dc1d07:0x84cc9cd0c8c0a85b!8m2!3d27.6466771!4d85.3261411!16s%2Fg%2F11c1pqg_qv?entry=ttu&g_ep=EgoyMDI1MDEwNi4xIKXMDSoJLDEwMjExMjMzSAFQAw%3D%3D">3rd Floor, Thasikhel, Lalitpur Nepal</a></p> 
+                        <p><strong>Email Address</strong><br> <a href="mailto:avayabajracharya@psp-saiitek.com">avayabajracharya@psp-saiitek.com</a> </p> 
+                        <p><strong>Phone Number</strong><br>  <a href="tel:+9779823085834">+977 9823085834</a>, <a href="tel:+9779709042808">+977 9709042808</a></p>
+                        <p><strong>Powered By</strong><br> <img class="psp-logo"  src ="https://i.ibb.co/xSwMmkR8/favicon-16x16.png" alt=""> PSP</p> <br> 
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+     
+
+    <footer>
+        <p>© <span id="year"></span> Saiitek Solutions. All rights reserved.</p>   
+     </footer>
+
+    <script>
+       const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const scrollLinks = document.querySelectorAll('.scroll-link');
+
+// Toggle mobile menu on single click
+menuToggle.addEventListener('click', () => {
+    const isActive = mobileMenu.classList.contains('active');
+
+    if (!isActive) {
+        openMenu();
+    } else {
+        closeMenu();
+    }
+});
+
+// Open menu and lock scroll
+function openMenu() {
+    mobileMenu.classList.add('active');
+    menuToggle.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Lock scroll
+}
+
+// Close menu and unlock scroll
+function closeMenu() {
+    mobileMenu.classList.remove('active');
+    menuToggle.classList.remove('active');
+    document.body.style.overflow = ''; // Unlock scroll
+}
+
+// Smooth scrolling function
+function smoothScroll(target) {
+    const element = document.querySelector(target);
+    const headerOffset = 70;
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+    });
+}
+
+// Add smooth scrolling to all navbar and mobile menu links
+scrollLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            smoothScroll(targetId);
+            closeMenu(); // Close after selecting
+        }
+    });
+});
+
+// Close menu on resize if screen becomes large
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        closeMenu();
+    }
+});
+
+
+
+    // Marquee for clients
+
+    const root = document.documentElement;
+const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
+const marqueeContent = document.querySelector("ul.marquee-content");
+
+root.style.setProperty("--marquee-elements", marqueeContent.children.length);
+
+for(let i=0; i<marqueeElementsDisplayed; i++) {
+  marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+const sections = document.querySelectorAll("section:not(.hero)");
+
+const observer = new IntersectionObserver(
+(entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+        }
+    });
+},
+{ threshold: 0.2 }
+);
+
+sections.forEach(section => {
+section.classList.add("hidden");
+observer.observe(section);
+});
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const headings = document.querySelectorAll(".section-heading");
+
+    const observer = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = "translateX(0)";
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    headings.forEach(heading => {
+        observer.observe(heading);
+    });
+});
+
+ // Get the current year
+ const currentYear = new Date().getFullYear();
+
+// Set the current year in the footer
+document.getElementById('year').textContent = currentYear;
+</script>
+  
+    </script>
+</body>
+</html>
