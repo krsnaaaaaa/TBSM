@@ -591,22 +591,16 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          /* text-align: center; */
           flex-shrink: 0;
           width: var(--marquee-element-width);
           max-height: 100%;
-          font-size: calc(var(--marquee-height)*3/4); /* 5rem; */
-          white-space: nowrap;
-          padding: 20px; /* Adds some space around each image */
-
+          padding: 0; /* Removed extra padding */
+          margin: 0 10px; /* Added consistent margin for equal spacing */
         }
 
         .marquee-content li img {
-          width: 100%;
-          gap: 10px;
-          /* height: 100%; */
-          margin: 10px; /* Adds space between images */
-        
+          width: 90%; /* Adjusted width for better alignment */
+          margin: 0; /* Removed margin to avoid inconsistencies */
         }
 
         @media (max-width: 600px) {
